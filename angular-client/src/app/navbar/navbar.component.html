@@ -1,21 +1,27 @@
 <mat-toolbar color="primary" class="mat-elevation-z6">
 
-    <button mat-mini-fab class="tlb-name" color="primary">
+    <button mat-mini-fab class="tlb-name" color="primary" (click)="onClick()">
       <i class="material-icons">menu</i>
     </button>
-    <span class="tlb-name" routerLink="/">Mapper</span>
+    <span class="tlb-name" routerLink="/">MyMapper</span>
 
     <span class="tlb-spacer"></span>
     <button mat-mini-fab [matMenuTriggerFor]="menu" color="primary">
       <i class="material-icons">more_vert</i>
     </button>
     <mat-menu #menu="matMenu">
+      <button mat-menu-item *ngIf="!ifLogged()" routerLink="/register">Register</button>
+      <button mat-menu-item *ngIf="!ifLogged()" routerLink="/login">Login</button>
       <button mat-menu-item routerLink="/">hoome</button>
     </mat-menu>
 
+    <button mat-icon-button [matMenuTriggerFor]="Usermenu" *ngIf="ifLogged()">
+      <i class="material-icons md-48">account_circle</i>
+    </button>
     <mat-menu #Usermenu="matMenu">
       <button mat-button>-- hello {{user}} --</button>
       <button mat-menu-item>UserPanel</button>
+      <button mat-menu-item *ngIf="ifLogged()" (click)="onLogout()">LogOut</button>
     </mat-menu>
 
 </mat-toolbar>
