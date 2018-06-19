@@ -1,3 +1,21 @@
-<p>
-  register works!
-</p>
+<form class="reg-form" [formGroup]="registerForm">
+  <mat-form-field class="reg-form-full-field">
+    <input matInput placeholder="Username" name="username" formControlName="username" required>
+    <mat-error *ngIf="!registerForm.controls.username.valid"> Username is required</mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="reg-form-full-field">
+    <input matInput placeholder="Email" formControlName="email" required>
+    <mat-error *ngIf="!registerForm.controls.email.valid"> Incorrect email address</mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="reg-form-full-field">
+    <input matInput type="password" placeholder="Password" formControlName="password" required>
+    <mat-error *ngIf="!registerForm.controls.password.valid"> Password is required</mat-error>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" [disabled]="!registerForm.valid" (click)="register()">
+    Register
+  </button>
+
+</form>
