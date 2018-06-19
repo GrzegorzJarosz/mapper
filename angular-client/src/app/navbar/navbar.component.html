@@ -1,3 +1,21 @@
-<p>
-  navbar works!
-</p>
+<mat-toolbar color="primary" class="mat-elevation-z6">
+
+    <button mat-mini-fab class="tlb-name" color="primary">
+      <i class="material-icons">menu</i>
+    </button>
+    <span class="tlb-name" routerLink="/">Mapper</span>
+
+    <span class="tlb-spacer"></span>
+    <button mat-mini-fab [matMenuTriggerFor]="menu" color="primary">
+      <i class="material-icons">more_vert</i>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item routerLink="/">hoome</button>
+    </mat-menu>
+
+    <mat-menu #Usermenu="matMenu">
+      <button mat-button>-- hello {{user}} --</button>
+      <button mat-menu-item>UserPanel</button>
+    </mat-menu>
+
+</mat-toolbar>
