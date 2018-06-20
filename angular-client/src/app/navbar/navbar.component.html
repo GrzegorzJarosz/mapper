@@ -20,7 +20,7 @@
     </button>
     <mat-menu #Usermenu="matMenu">
       <button mat-button>-- hello {{user}} --</button>
-      <button mat-menu-item>UserPanel</button>
+      <button mat-menu-item  routerLink="/profile">UserPanel</button>
       <button mat-menu-item *ngIf="ifLogged()" (click)="onLogout()">LogOut</button>
     </mat-menu>
 

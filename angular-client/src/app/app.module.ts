@@ -14,11 +14,13 @@ import { RegisterComponent } from './register/register.component';
 import { UserPanelComponent } from './user-panel/user-panel.component';
 
 import{ AuthService } from './auth.service';
+import { FooterComponent } from './footer/footer.component';
 
 const appRoutes:Routes = [
   {path:'', component: HomeComponent},
   {path:'register', component: RegisterComponent},
-  {path:'login', component: LoginComponent}
+  {path:'login', component: LoginComponent},
+  {path:'profile', component: UserPanelComponent}
 ];
 
 @NgModule({
@@ -28,7 +30,8 @@ const appRoutes:Routes = [
     LoginComponent,
     NavbarComponent,
     RegisterComponent,
-    UserPanelComponent
+    UserPanelComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

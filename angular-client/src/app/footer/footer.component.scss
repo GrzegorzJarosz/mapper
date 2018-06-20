@@ -1,0 +1,13 @@
+.my-toolbar{
+  display: flex;
+  span{
+    flex:1;
+  }
+}
+
+@media(max-width:497px){
+  mat-toolbar-row{
+    flex-direction: column;
+    height:auto;
+  }
+}
