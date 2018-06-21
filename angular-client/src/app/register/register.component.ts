@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router'
+import {MatSnackBar} from '@angular/material';
 
 @Component({
   selector: 'app-register',
@@ -13,7 +14,8 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    public snackBar: MatSnackBar
   ) { }
 
   ngOnInit() {
@@ -30,11 +32,13 @@ export class RegisterComponent implements OnInit {
 
     this.authService.register(user).subscribe(
       (result)=>{
-        console.log(result)
+        console.log(result);
+        this.snackBar.open('register succesfull', 'ok', { duration: 2000 });
         this.router.navigate(['/login']);
       },
       (err)=>{
         if(err){
+          this.snackBar.open(err.error.message, 'ok', { duration: 2000 });
           console.log(err.status)
         }
       }

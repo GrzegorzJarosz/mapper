@@ -3,6 +3,9 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router'
 
+
+import {MatSnackBar} from '@angular/material';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -13,7 +16,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    public snackBar: MatSnackBar
   ) { }
 
   user;
@@ -33,14 +37,20 @@ export class LoginComponent implements OnInit {
       (result)=>{
         // console.log(result);
         this.authService.localUserStore(result);
+        this.snackBar.open('you are logged now', 'ok', { duration: 2000 });
         this.router.navigate(['/']);
       },
       (err)=>{
         if(err){
-        console.log(err.status)
+        console.log(err);
+        this.snackBar.open(err.error.message, 'ok', { duration: 2000 });
         }
       }
     );
   }
+
+
+
+
 
 }
