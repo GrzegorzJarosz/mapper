@@ -3,7 +3,10 @@ import { HttpClient, HttpHeaders, HttpErrorResponse  }  from '@angular/common/h
 import { Observable } from 'rxjs/Observable';
 import { Observer } from 'rxjs/Observer';
 import 'rxjs/Rx';
-import{ Subject }from'rxjs/Subject';
+import { Subject } from 'rxjs/Subject';
+import { JwtHelperService } from '@auth0/angular-jwt';
+
+const jwtHelper = new JwtHelperService();
 
 @Injectable()
 export class AuthService{
@@ -11,8 +14,9 @@ export class AuthService{
   user: any;
   authToken: any;
   userObs;
-
-  constructor(private http: HttpClient){}
+  constructor(
+    private http: HttpClient
+  ){}
 
   apiUrl:string = 'http://localhost:3000';
 
@@ -26,7 +30,7 @@ export class AuthService{
 /*------------------------------------------------------------------------*/
 
   checkLogin(){
-    if(localStorage.getItem('user')){
+    if(localStorage.getItem('user') && jwtHelper.isTokenExpired(localStorage.getItem('data.token'))){
       return true
     } else {
       return false

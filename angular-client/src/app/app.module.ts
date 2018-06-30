@@ -5,23 +5,18 @@ import { MaterialModule } from './material.module';
 import { Routes, RouterModule }from "@angular/router";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthGuard } from './guards/auth.guard';
 
 import { AppComponent } from './app.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
-import { NavbarComponent } from './navbar/navbar.component';
 import { RegisterComponent } from './register/register.component';
 import { UserPanelComponent } from './user-panel/user-panel.component';
 
-import{ AuthService } from './auth.service';
-import { FooterComponent } from './footer/footer.component';
-
-const appRoutes:Routes = [
-  {path:'', component: HomeComponent},
-  {path:'register', component: RegisterComponent},
-  {path:'login', component: LoginComponent},
-  {path:'profile', component: UserPanelComponent}
-];
+import { AuthService } from './auth.service';
+import { AppRoutingModule } from './/app-routing.module';
 
 @NgModule({
   declarations: [
@@ -40,9 +35,12 @@ const appRoutes:Routes = [
     ReactiveFormsModule,
     HttpClientModule,
     MaterialModule,
-    RouterModule.forRoot(appRoutes)
+    AppRoutingModule
   ],
-  providers: [AuthService],
+  providers: [
+    AuthService,
+    AuthGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

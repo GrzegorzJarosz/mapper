@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router'
-import {MatSnackBar} from '@angular/material';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-navbar',
@@ -15,7 +15,8 @@ export class NavbarComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    public snackBar: MatSnackBar
+    public snackBar: MatSnackBar,
+    private router : Router
   ){ }
 
   ngOnInit() {
@@ -32,6 +33,7 @@ export class NavbarComponent implements OnInit {
 
   onLogout(){
     this.authService.logout();
+    this.router.navigate(['/']);
     this.snackBar.open('you are logged out', 'ok', { duration: 2000 });
   }
 
