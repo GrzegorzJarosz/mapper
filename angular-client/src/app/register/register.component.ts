@@ -39,7 +39,7 @@ export class RegisterComponent implements OnInit {
       (err)=>{
         if(err){
           this.snackBar.open(err.error.message, 'ok', { duration: 2000 });
-          console.log(err.status)
+          console.log(err);
         }
       }
     );
