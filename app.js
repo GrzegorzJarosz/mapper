@@ -20,6 +20,8 @@ const app = express();
 /*-----------------------------------------------------------------------------------------------*/
 //routes
 const userRoutes = require('./api/routes/users');
+const placesRoutes = require('./api/routes/places');
+
 
 /*-----------------------------------------------------------------------------------------------*/
 const port = process.env.PORT || 3000;
@@ -42,6 +44,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 /*-----------------------------------------------------------------------------------------------*/
 //use routes
 app.use('/user', userRoutes);
+app.use('/places', placesRoutes);
 
 /*-----------------------------------------------------------------------------------------------*/
 //index route
