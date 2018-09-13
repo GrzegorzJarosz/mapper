@@ -11,4 +11,5 @@ MongoDB,
 Json Webtoken,
 Angular5,
 Sass,
-Material Design
+Material Design,
+Google maps

@@ -13,6 +13,8 @@
       <button mat-menu-item *ngIf="!ifLogged()" routerLink="/register">Register</button>
       <button mat-menu-item *ngIf="!ifLogged()" routerLink="/login">Login</button>
       <button mat-menu-item routerLink="/">hoome</button>
+      <button mat-menu-item routerLink="/myplaces">myplaces</button>
+
     </mat-menu>
 
     <button mat-icon-button [matMenuTriggerFor]="Usermenu" *ngIf="ifLogged()">

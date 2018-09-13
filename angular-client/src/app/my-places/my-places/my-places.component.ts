@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PlacesService } from '../places.service';
 
 @Component({
   selector: 'app-my-places',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MyPlacesComponent implements OnInit {
 
-  constructor() { }
+  myplaces;
+
+  constructor(
+    private placesService : PlacesService
+  ) { }
 
   ngOnInit() {
+
+    this.placesService.getMyPlaces().subscribe(
+      places => {console.log(places)}
+    )
+
   }
 
 }

@@ -6,6 +6,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { UserPanelComponent } from './user-panel/user-panel.component';
+import { MyPlacesComponent } from './my-places/my-places/my-places.component';
 
 import { AuthGuard } from './guards/auth.guard';
 
@@ -13,7 +14,8 @@ const appRoutes:Routes = [
   {path:'', component: HomeComponent},
   {path:'register', component: RegisterComponent},
   {path:'login', component: LoginComponent},
-  {path:'profile', component: UserPanelComponent, canActivate:[AuthGuard]}
+  {path:'profile', component: UserPanelComponent, canActivate:[AuthGuard]},
+  {path:'myplaces', component: MyPlacesComponent, canActivate: [AuthGuard]}
 ];
 
 

@@ -17,6 +17,9 @@ import { UserPanelComponent } from './user-panel/user-panel.component';
 
 import { AuthService } from './auth.service';
 import { AppRoutingModule } from './/app-routing.module';
+
+import { PlacesModule } from './my-places/places.module';
+
 import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
@@ -37,6 +40,7 @@ import { AgmCoreModule } from '@agm/core';
     HttpClientModule,
     MaterialModule,
     AppRoutingModule,
+    PlacesModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCKwJc3E9LZsMVm4ZoMyb9K9BZ_nH5sBhI'
     })
