@@ -10,11 +10,15 @@ const placeSchema = mongoose.Schema({
     required :true
   },
   description:{
-    type:String
+    type:String,
+    required :true
   },
   user:{
     type:String,
     required :true
+  },
+  date:{
+    type:Date
   }
 });
 

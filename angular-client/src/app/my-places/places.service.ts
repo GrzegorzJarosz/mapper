@@ -12,7 +12,7 @@ export class PlacesService{
   ){}
 
   getMyPlaces(){
-    return this.http.get(`${this.apiUrl}/places`);
+    return this.http.get(`${this.apiUrl}/places/${localStorage.getItem('user')}`);
   }
 
 }
