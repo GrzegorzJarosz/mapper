@@ -2,11 +2,11 @@ const mongoose = require('mongoose');
 
 const placeSchema = mongoose.Schema({
   lat:{
-    type:String,
+    type:Number,
     required :true
   },
   lng:{
-    type:String,
+    type:Number,
     required :true
   },
   description:{

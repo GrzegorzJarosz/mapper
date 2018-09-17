@@ -6,9 +6,14 @@ import { PlaceListComponent } from './place-list/place-list.component';
 import { PlaceSearchComponent } from './place-search/place-search.component';
 import { PlacesService } from './places.service';
 
+import { AgmCoreModule } from '@agm/core';
+import { MaterialModule } from '../material.module';
+
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    AgmCoreModule,
+    MaterialModule
   ],
   declarations: [
     MyPlacesComponent,

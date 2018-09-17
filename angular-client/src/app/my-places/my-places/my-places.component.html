@@ -1,3 +1,17 @@
-<p>
-  my-places works!
-</p>
+<agm-map
+  [latitude]="lat"
+  [longitude]="lng"
+  (mapClick)="onChoseLocation($event)">
+
+  <agm-marker *ngFor = "let m of myplaces"
+    [latitude] = "m.lat"
+    [longitude] = "m.lng"
+    [label]="m.description"
+  </agm-marker>
+
+</agm-map>
+<section >
+  <button mat-fab color="primary">
+    <mat-icon class="material-icons">add</mat-icon>
+  </button>
+</section>
