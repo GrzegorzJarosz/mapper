@@ -34,5 +34,9 @@ exports.delete_place = (req,res) => {
 
 /*------------------------------------------------------------------*/
 exports.getall_places = (req,res) => {
-  Place.find({user:req.params.user}).exec().then( places => res.send(places))
+  Place.find({user:req.params.user}).exec().then( places => res.status(200).send(places))
+  .catch(err => {
+    console.log('get error');
+    res.status(500).json({error: err})}
+  );
 }
