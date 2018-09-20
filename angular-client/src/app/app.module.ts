@@ -17,9 +17,7 @@ import { UserPanelComponent } from './user-panel/user-panel.component';
 
 import { AuthService } from './auth.service';
 import { AppRoutingModule } from './/app-routing.module';
-
 import { PlacesModule } from './my-places/places.module';
-
 import { AgmCoreModule } from '@agm/core';
 
 @NgModule({

@@ -1,0 +1,20 @@
+.mypl-container{
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  height:400px;
+  
+}
+
+agm-map{
+  flex-basis: 85%;
+}
+.sidepanel{
+  flex-basis: 15%;
+  overflow:auto;
+}
+.add-butt{
+  position: absolute;
+  left: 17%;
+  top: 19px;
+}

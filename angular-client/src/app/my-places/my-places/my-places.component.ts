@@ -23,6 +23,10 @@ export class MyPlacesComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.loadMyPlaces();
+  }
+
+  loadMyPlaces(){
     this.placesService.getMyPlaces()
       .subscribe((places) => {this.myplaces = places});
   }
@@ -38,11 +42,13 @@ export class MyPlacesComponent implements OnInit {
 
   openDialog(coords){
     if(this.addState === true){
-      this.dialog.open(AddModalComponent, {data:{
+      let dialog = this.dialog.open(AddModalComponent, {data:{
         descr:'new place',
         coords:coords
     }})
-      console.log('hejho');
+      dialog.afterClosed().subscribe(()=>{
+        this.loadMyPlaces();
+      })
     }
 
   }

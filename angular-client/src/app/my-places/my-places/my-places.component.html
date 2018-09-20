@@ -1,17 +1,30 @@
-<agm-map
-  [latitude]="lat"
-  [longitude]="lng"
-  (mapClick)="onChoseLocation($event)">
+<div class="mypl-container">
 
-  <agm-marker *ngFor = "let m of myplaces"
-    [latitude] = "m.lat"
-    [longitude] = "m.lng"
-    [label]="m.description">
-  </agm-marker>
+  <mat-card class="sidepanel">
+    <mat-card-title>My places list</mat-card-title>
+    <app-place-list *ngIf= "myplaces" [places]="myplaces"></app-place-list>
+  </mat-card>
 
-</agm-map>
-<section >
-  <button mat-fab color="primary" (click)="setAddState()">
-    <mat-icon class="material-icons">add</mat-icon>
-  </button>
-</section>
+
+    <agm-map
+      [latitude]="lat"
+      [longitude]="lng"
+      (mapClick)="onChoseLocation($event)">
+
+      <agm-marker *ngFor = "let m of myplaces"
+        [latitude] = "m.lat"
+        [longitude] = "m.lng"
+        [label]="m.description">
+      </agm-marker>
+    </agm-map>
+
+    <div class="add-butt">
+      <button mat-mini-fab color="primary" (click)="setAddState()">
+        <mat-icon class="material-icons">add</mat-icon>
+      </button>
+    </div>
+
+
+
+  <!-- </mat-card> -->
+</div>

@@ -1,3 +1,9 @@
-<p>
-  place-list works!
-</p>
+<mat-nav-list>
+
+  <mat-list-item *ngFor="let place of places">
+    <p>{{place.description}}</p>
+    <mat-divider></mat-divider>
+  </mat-list-item>
+
+  <mat-divider></mat-divider>
+</mat-nav-list>
