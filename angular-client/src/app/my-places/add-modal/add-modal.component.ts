@@ -16,6 +16,8 @@ export class AddModalComponent implements OnInit {
   ) { }
 
   newPlaceDescr:string;
+  newPlaceName:string;
+  newPlaceCat:string;
 
   ngOnInit() {
   }
@@ -26,6 +28,9 @@ export class AddModalComponent implements OnInit {
 
   public addPlace(){
     this.data.descr = this.newPlaceDescr;
+    this.data.name = this.newPlaceName;
+    this.data.category = this.newPlaceCat;
+
     this.placesService.addNewPlace(this.data)
     .subscribe(result => {
       // console.log(result)

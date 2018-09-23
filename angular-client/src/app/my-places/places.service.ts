@@ -26,6 +26,8 @@ export class PlacesService{
       lat: dataPlace.coords.coords.lat,
       lng: dataPlace.coords.coords.lng,
       description: dataPlace.descr,
+      name: dataPlace.name,
+      category: dataPlace.category,
       user:localStorage.getItem('user')
     }
     return this.http.post(`${this.apiUrl}/places/${localStorage.getItem('user')}`, place , httpOptions )

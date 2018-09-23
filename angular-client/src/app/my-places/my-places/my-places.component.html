@@ -18,7 +18,7 @@
     <agm-marker *ngFor = "let m of myplaces"
       [latitude] = "m.lat"
       [longitude] = "m.lng"
-      [label]="m.description">
+      [label]="m.name">
     </agm-marker>
   </agm-map>
 

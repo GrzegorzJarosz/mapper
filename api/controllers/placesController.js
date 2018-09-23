@@ -6,7 +6,9 @@ exports.add_place = (req,res) => {
   const place = new Place({
     lat:req.body.lat,
     lng:req.body.lng,
+    name:req.body.name,
     description:req.body.description,
+    category:req.body.category,
     user:req.params.user,
     date: Date.now()
   });
@@ -15,7 +17,7 @@ exports.add_place = (req,res) => {
     res.status(200).json({msg:'new place created'})
   })
   .catch(err => {
-    console.log('saving error');
+    console.log('saving error'+ err);
     res.status(500).json({error: 'some problems with saving'})}
   );
 }
