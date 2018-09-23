@@ -25,7 +25,7 @@ export class MyPlacesComponent implements OnInit {
   ngOnInit() {
     this.loadMyPlaces();
   }
-
+LatLngBounds
   loadMyPlaces(){
     this.placesService.getMyPlaces()
       .subscribe((places) => {this.myplaces = places});

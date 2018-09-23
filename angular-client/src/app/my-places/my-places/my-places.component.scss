@@ -3,18 +3,15 @@
   display: flex;
   flex-direction: row;
   height:400px;
-  
 }
 
 agm-map{
-  flex-basis: 85%;
+  flex:3;
 }
 .sidepanel{
-  flex-basis: 15%;
+  flex:2;
   overflow:auto;
 }
-.add-butt{
-  position: absolute;
-  left: 17%;
-  top: 19px;
+button{
+  margin-right:10px;
 }

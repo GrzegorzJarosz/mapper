@@ -1,0 +1,9 @@
+mat-list-item{
+  cursor:pointer;
+  p{
+    color:#999;
+  }
+  &:hover{
+    background-color: #f6f6f6;
+  }
+}

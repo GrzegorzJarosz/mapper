@@ -1,30 +1,25 @@
 <div class="mypl-container">
 
-  <mat-card class="sidepanel">
-    <mat-card-title>My places list</mat-card-title>
-    <app-place-list *ngIf= "myplaces" [places]="myplaces"></app-place-list>
-  </mat-card>
+  <div class="sidepanel">
+      <mat-toolbar color="primary" class="mat-elevation-z6">
+        <button mat-mini-fab color="primary" (click)="setAddState()">
+          <mat-icon class="material-icons">add</mat-icon>
+        </button>
+        <h3>My places</h3>
+      </mat-toolbar>
+      <app-place-list *ngIf= "myplaces" [places]="myplaces"></app-place-list>
+  </div>
 
+  <agm-map
+    [latitude]="lat"
+    [longitude]="lng"
+    (mapClick)="onChoseLocation($event)">
 
-    <agm-map
-      [latitude]="lat"
-      [longitude]="lng"
-      (mapClick)="onChoseLocation($event)">
+    <agm-marker *ngFor = "let m of myplaces"
+      [latitude] = "m.lat"
+      [longitude] = "m.lng"
+      [label]="m.description">
+    </agm-marker>
+  </agm-map>
 
-      <agm-marker *ngFor = "let m of myplaces"
-        [latitude] = "m.lat"
-        [longitude] = "m.lng"
-        [label]="m.description">
-      </agm-marker>
-    </agm-map>
-
-    <div class="add-butt">
-      <button mat-mini-fab color="primary" (click)="setAddState()">
-        <mat-icon class="material-icons">add</mat-icon>
-      </button>
-    </div>
-
-
-
-  <!-- </mat-card> -->
 </div>
