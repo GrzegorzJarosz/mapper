@@ -15,8 +15,9 @@
   </div>
 
   <agm-map
-    [latitude]="lat"
-    [longitude]="lng"
+    [latitude]="currentZoom.lat"
+    [longitude]="currentZoom.lng"
+    [zoom]="currentZoom.zoom"
     (mapClick)="onChoseLocation($event)">
 
     <agm-marker *ngFor = "let m of myplaces"

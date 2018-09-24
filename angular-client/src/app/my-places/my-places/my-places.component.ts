@@ -14,8 +14,11 @@ export class MyPlacesComponent implements OnInit {
   addState:boolean = false;
   selectedPlace;
 
-  lat: number = 50.061753;
-  lng: number = 19.937393;
+  currentZoom = {
+    lat:50.061753,
+    lng:19.937393,
+    zoom:10
+  }
 
   constructor(
     private placesService : PlacesService,
@@ -25,7 +28,9 @@ export class MyPlacesComponent implements OnInit {
   ngOnInit() {
     this.loadMyPlaces();
   }
-LatLngBounds
+
+  // LatLngBounds
+
   loadMyPlaces(){
     this.placesService.getMyPlaces()
       .subscribe((places) => {this.myplaces = places});
@@ -53,7 +58,9 @@ LatLngBounds
   }
 
   onPlaceSelected($event){
-    console.log($event);
+    this.currentZoom.lat = $event.lat;
+    this.currentZoom.lng = $event.lng;
+    this.currentZoom.zoom = 12;
   }
 
 }
