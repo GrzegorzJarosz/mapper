@@ -12,7 +12,7 @@ export class MyPlacesComponent implements OnInit {
 
   myplaces;
   addState:boolean = false;
-  selectedNewPlace;
+  selectedPlace;
 
   lat: number = 50.061753;
   lng: number = 19.937393;
@@ -50,7 +50,10 @@ LatLngBounds
         this.loadMyPlaces();
       })
     }
+  }
 
+  onPlaceSelected($event){
+    console.log($event);
   }
 
 }

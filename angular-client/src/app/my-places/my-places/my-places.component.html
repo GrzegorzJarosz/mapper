@@ -7,7 +7,11 @@
         </button>
         <h3>My places</h3>
       </mat-toolbar>
-      <app-place-list *ngIf= "myplaces" [places]="myplaces"></app-place-list>
+      <app-place-list
+        *ngIf= "myplaces"
+        [places]="myplaces"
+        (placeSel)="onPlaceSelected($event)">
+      </app-place-list>
   </div>
 
   <agm-map
