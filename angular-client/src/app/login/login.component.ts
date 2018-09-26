@@ -31,11 +31,9 @@ export class LoginComponent implements OnInit {
 
   login(){
     const user = this.loginForm.value;
-    //console.log(user);
 
     this.authService.authenticate(user).subscribe(
       (result)=>{
-        // console.log(result);
         this.authService.localUserStore(result);
         this.snackBar.open('you are logged now', 'ok', { duration: 2000 });
         this.router.navigate(['/']);

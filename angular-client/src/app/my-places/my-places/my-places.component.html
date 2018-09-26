@@ -1,16 +1,25 @@
 <div class="mypl-container">
+  <mat-card class="mat-elevation-z6 addInfo" *ngIf="addState">
+    <mat-icon>info</mat-icon>
+    <p>Choose your new place on map..</p>
+    <mat-card-actions>
+      <button mat-button (click) = "resetAddState()">CANCEL</button>
+    </mat-card-actions>
+  </mat-card>
 
   <div class="sidepanel">
       <mat-toolbar color="primary" class="mat-elevation-z6">
+        <h3>My places</h3>
         <button mat-mini-fab color="primary" (click)="setAddState()">
           <mat-icon class="material-icons">add</mat-icon>
         </button>
-        <h3>My places</h3>
       </mat-toolbar>
+
       <app-place-list
         *ngIf= "myplaces"
         [places]="myplaces"
-        (placeSel)="onPlaceSelected($event)">
+        (placeSel)="onPlaceSelected($event)"
+        (refreshMap) = "loadMyPlaces()">
       </app-place-list>
   </div>
 

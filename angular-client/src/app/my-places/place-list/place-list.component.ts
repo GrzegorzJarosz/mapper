@@ -1,4 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { PlacesService } from '../places.service';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { ConfirmatorComponent } from '../confirmator/confirmator.component';
 
 @Component({
   selector: 'app-place-list',
@@ -9,14 +12,30 @@ export class PlaceListComponent implements OnInit {
 
   @Input() places;
   @Output() placeSel = new EventEmitter<any>();
+  @Output() refreshMap = new EventEmitter<boolean>();
 
-  constructor() { }
+  constructor(
+    private placesService : PlacesService,
+    public dialog: MatDialog
+  ) { }
 
-  ngOnInit() {
-
-  }
+  ngOnInit() { }
 
   onPlaceSelect(place){
     this.placeSel.emit(place);
   }
+  reloadPlaces(){
+    this.refreshMap.emit(true);
+  }
+
+  removePlace(place){
+    let dialog = this.dialog.open(ConfirmatorComponent, {data:{
+      descr:'delete',
+      place: place
+    }})
+    dialog.afterClosed().subscribe(()=>{
+      this.reloadPlaces();
+    });
+  }
+
 }

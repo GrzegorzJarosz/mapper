@@ -11,7 +11,18 @@ agm-map{
 .sidepanel{
   flex:2;
   overflow:auto;
+  mat-toolbar{
+    display: flex;
+    justify-content: space-between;
+  }
 }
-button{
-  margin-right:10px;
+
+.addInfo{
+  position: absolute;
+  top: 40px;
+  left: 61px;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

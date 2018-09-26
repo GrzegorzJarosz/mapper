@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PlacesService } from '../places.service';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { AddModalComponent } from '../add-modal/add-modal.component';
 
 @Component({
@@ -43,6 +43,9 @@ export class MyPlacesComponent implements OnInit {
 
   setAddState(){
     this.addState = true;
+  }
+  resetAddState(){
+    this.addState = false;
   }
 
   openDialog(coords){

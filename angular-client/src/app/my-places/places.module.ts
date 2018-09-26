@@ -10,6 +10,7 @@ import { PlacesService } from './places.service';
 import { AgmCoreModule } from '@agm/core';
 import { MaterialModule } from '../material.module';
 import { AddModalComponent } from './add-modal/add-modal.component';
+import { ConfirmatorComponent } from './confirmator/confirmator.component';
 
 @NgModule({
   imports: [
@@ -24,13 +25,15 @@ import { AddModalComponent } from './add-modal/add-modal.component';
     PlaceDetailComponent,
     PlaceListComponent,
     PlaceSearchComponent,
-    AddModalComponent
+    AddModalComponent,
+    ConfirmatorComponent
   ],
   providers: [
     PlacesService
   ],
   entryComponents: [
-    AddModalComponent
+    AddModalComponent,
+    ConfirmatorComponent
   ]
 })
 export class PlacesModule { }

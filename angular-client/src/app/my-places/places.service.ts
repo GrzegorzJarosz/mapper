@@ -32,4 +32,9 @@ export class PlacesService{
     }
     return this.http.post(`${this.apiUrl}/places/${localStorage.getItem('user')}`, place , httpOptions )
   }
+
+  removePlace(id){
+    return this.http.delete(`${this.apiUrl}/places/${localStorage.getItem('user')}/${id}`);
+  }
+
 }
