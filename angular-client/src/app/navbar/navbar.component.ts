@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router'
 import { MatSnackBar } from '@angular/material';
@@ -9,35 +9,29 @@ import { MatSnackBar } from '@angular/material';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-  @Output() onNavToggle = new EventEmitter<boolean>();
-
   user;
 
   constructor(
     private authService: AuthService,
     public snackBar: MatSnackBar,
-    private router : Router
-  ){ }
+    private router: Router
+  ) { }
 
   ngOnInit() {
     //displaying ame of user
     this.user = localStorage.getItem('user');
     this.authService.userActiv.subscribe(
-      (user)=>{this.user = user}
+      (user) => { this.user = user }
     )
   }
 
-  onClick(){
-    this.onNavToggle.emit(true);
-  }
-
-  onLogout(){
+  onLogout() {
     this.authService.logout();
     this.router.navigate(['/']);
     this.snackBar.open('you are logged out', 'ok', { duration: 2000 });
   }
 
-  ifLogged(){
+  ifLogged() {
     return this.authService.checkLogin();
   }
 

@@ -8,7 +8,9 @@ const morgan = require('morgan');
 
 /*---------------------------------mongoose--------------------------------------------------------------*/
 //db connect
-mongoose.connect(process.env.database);
+mongoose.connect(process.env.database, {
+  useNewUrlParser: true
+});
 //on connect
 mongoose.connection.on('connected', () => {
   console.log(`connected to db ${process.env.database}`);
@@ -31,7 +33,9 @@ const port = process.env.PORT || 3000;
 app.use(morgan('dev'));
 
 //bodyParser
-app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
 app.use(bodyParser.json());
 
 //cors
@@ -48,7 +52,7 @@ app.use('/places', placesRoutes);
 
 /*-----------------------------------------------------------------------------------------------*/
 //index route
-app.get('/', (req,res) => {
+app.get('/', (req, res) => {
   res.send('hello');
 });
 

@@ -1,29 +1,27 @@
 <mat-toolbar color="primary" class="main-nav mat-elevation-z4">
 
-    <button mat-mini-fab class="tlb-name" color="primary" (click)="onClick()">
-      <i class="material-icons">menu</i>
-    </button>
-    <span class="tlb-name" routerLink="/">MyMapper</span>
 
-    <span class="tlb-spacer"></span>
-    <button mat-mini-fab [matMenuTriggerFor]="menu" color="primary">
-      <i class="material-icons">more_vert</i>
-    </button>
-    <mat-menu #menu="matMenu">
-      <button mat-menu-item *ngIf="!ifLogged()" routerLink="/register">Register</button>
-      <button mat-menu-item *ngIf="!ifLogged()" routerLink="/login">Login</button>
-      <button mat-menu-item routerLink="/">hoome</button>
-      <button mat-menu-item *ngIf="ifLogged()" routerLink="/myplaces">myplaces</button>
+  <span class="tlb-name" routerLink="/">MyMapper</span>
 
-    </mat-menu>
+  <span class="tlb-spacer"></span>
+  <button mat-mini-fab [matMenuTriggerFor]="menu" color="primary">
+    <i class="material-icons">more_vert</i>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item *ngIf="!ifLogged()" routerLink="/register">Register</button>
+    <button mat-menu-item *ngIf="!ifLogged()" routerLink="/login">Login</button>
+    <button mat-menu-item routerLink="/">hoome</button>
+    <button mat-menu-item *ngIf="ifLogged()" routerLink="/myplaces">myplaces</button>
 
-    <button mat-icon-button [matMenuTriggerFor]="Usermenu" *ngIf="ifLogged()">
-      <i class="material-icons md-48">account_circle</i>
-    </button>
-    <mat-menu #Usermenu="matMenu">
-      <button mat-button>-- hello {{user}} --</button>
-      <button mat-menu-item  routerLink="/profile">UserPanel</button>
-      <button mat-menu-item *ngIf="ifLogged()" (click)="onLogout()">LogOut</button>
-    </mat-menu>
+  </mat-menu>
+
+  <button mat-icon-button [matMenuTriggerFor]="Usermenu" *ngIf="ifLogged()">
+    <i class="material-icons md-48">account_circle</i>
+  </button>
+  <mat-menu #Usermenu="matMenu">
+    <button mat-button>-- hello {{user}} --</button>
+    <button mat-menu-item routerLink="/profile">UserPanel</button>
+    <button mat-menu-item *ngIf="ifLogged()" (click)="onLogout()">LogOut</button>
+  </mat-menu>
 
 </mat-toolbar>
