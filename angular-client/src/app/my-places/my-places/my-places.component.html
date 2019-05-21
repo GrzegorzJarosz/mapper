@@ -3,36 +3,27 @@
     <mat-icon>info</mat-icon>
     <p>Choose your new place on map..</p>
     <mat-card-actions>
-      <button mat-button (click) = "resetAddState()">CANCEL</button>
+      <button mat-button (click)="resetAddState()">CANCEL</button>
     </mat-card-actions>
   </mat-card>
 
-  <div class="sidepanel">
-      <mat-toolbar color="primary" class="mat-elevation-z6">
-        <h3>My places</h3>
-        <button mat-mini-fab color="primary" (click)="setAddState()">
-          <mat-icon class="material-icons">add</mat-icon>
-        </button>
-      </mat-toolbar>
+  <div>
+    <mat-toolbar color="primary" class="mat-elevation-z6">
+      <h3>My places</h3>
+      <button mat-mini-fab color="primary" (click)="setAddState()">
+        <mat-icon class="material-icons">add</mat-icon>
+      </button>
+    </mat-toolbar>
 
-      <app-place-list
-        *ngIf= "myplaces"
-        [places]="myplaces"
-        (placeSel)="onPlaceSelected($event)"
-        (refreshMap) = "loadMyPlaces()">
-      </app-place-list>
+    <app-place-list *ngIf="myplaces" [places]="myplaces" (placeSel)="onPlaceSelected($event)"
+      (refreshMap)="loadMyPlaces()">
+    </app-place-list>
   </div>
 
-  <agm-map
-    [latitude]="currentZoom.lat"
-    [longitude]="currentZoom.lng"
-    [zoom]="currentZoom.zoom"
+  <agm-map [latitude]="currentZoom.lat" [longitude]="currentZoom.lng" [zoom]="currentZoom.zoom"
     (mapClick)="onChoseLocation($event)">
 
-    <agm-marker *ngFor = "let m of myplaces"
-      [latitude] = "m.lat"
-      [longitude] = "m.lng"
-      [label]="m.name">
+    <agm-marker *ngFor="let m of myplaces" [latitude]="m.lat" [longitude]="m.lng" [label]="m.name">
     </agm-marker>
   </agm-map>
 
