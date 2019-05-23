@@ -1,23 +1,25 @@
-.mypl-container{
+.mypl-container {
   position: relative;
   display: flex;
   flex-direction: row;
-  height:400px;
+  height: 400px;
 }
 
-agm-map{
-  flex:3;
+agm-map {
+  flex: 3;
 }
-.sidepanel{
-  flex:2;
-  overflow:auto;
-  mat-toolbar{
+
+.sidepanel {
+  flex: 2;
+  overflow: auto;
+
+  mat-toolbar {
     display: flex;
     justify-content: space-between;
   }
 }
 
-.addInfo{
+.addInfo {
   position: absolute;
   top: 40px;
   left: 61px;

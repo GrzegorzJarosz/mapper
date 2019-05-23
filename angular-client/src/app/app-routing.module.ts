@@ -5,9 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { UserPanelComponent } from './user-panel/user-panel.component';
 import { MyPlacesComponent } from './my-places/my-places/my-places.component';
-import { PlacesSetComponent } from './user-panel/places-set/places-set.component'
 
 import { AuthGuard } from './guards/auth.guard';
 
