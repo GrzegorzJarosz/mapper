@@ -2,3 +2,7 @@
   <i class="material-icons icon-marg-r">keyboard_backspace</i>
   <h4>back to Places</h4>
 </mat-toolbar>
+<mat-card *ngIf="categories">
+  <h3>categories list</h3>
+  <p *ngFor="let cat of categories"> {{cat.name}}</p>
+</mat-card>

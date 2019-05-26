@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserPanelService } from '../../user-panel.service';
 
 @Component({
   selector: 'app-places-cat-edit',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlacesCatEditComponent implements OnInit {
 
-  constructor() { }
+  categories;
+
+  constructor(
+    private userPanelService: UserPanelService
+  ) { }
+
 
   ngOnInit() {
+    this.userPanelService.getMyCatPlaces().subscribe((categories) => {
+      this.categories = categories;
+      console.log(categories);
+
+    })
   }
 
 }
