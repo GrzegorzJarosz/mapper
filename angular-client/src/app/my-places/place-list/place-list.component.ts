@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { PlacesService } from '../places.service';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { ConfirmatorComponent } from '../confirmator/confirmator.component';
+import { ConfirmatorComponent } from '../../confirmator/confirmator.component';
 
 @Component({
   selector: 'app-place-list',
@@ -15,25 +15,40 @@ export class PlaceListComponent implements OnInit {
   @Output() refreshMap = new EventEmitter<boolean>();
 
   constructor(
-    private placesService : PlacesService,
+    private placesService: PlacesService,
     public dialog: MatDialog
   ) { }
 
   ngOnInit() { }
 
-  onPlaceSelect(place){
+  onPlaceSelect(place) {
     this.placeSel.emit(place);
   }
-  reloadPlaces(){
+  reloadPlaces() {
     this.refreshMap.emit(true);
   }
 
-  removePlace(place){
-    let dialog = this.dialog.open(ConfirmatorComponent, {data:{
-      descr:'delete',
-      place: place
-    }})
-    dialog.afterClosed().subscribe(()=>{
+  // removePlace(place) {
+  //   let dialog = this.dialog.open(ConfirmatorComponent, {
+  //     data: {
+  //       descr: 'delete',
+  //       name: place
+  //     }
+  //   })
+  //   dialog.afterClosed().subscribe(() => {
+  //     this.reloadPlaces();
+  //   });
+  // }
+
+  openConfirmator(place) {
+    let dialog = this.dialog.open(ConfirmatorComponent, {
+      data: {
+        method: 'removePlace',
+        descr: 'delete',
+        place: place
+      }
+    })
+    dialog.afterClosed().subscribe(() => {
       this.reloadPlaces();
     });
   }

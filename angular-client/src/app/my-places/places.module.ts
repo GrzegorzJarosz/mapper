@@ -10,7 +10,7 @@ import { PlacesService } from './places.service';
 import { AgmCoreModule } from '@agm/core';
 import { MaterialModule } from '../material.module';
 import { AddModalComponent } from './add-modal/add-modal.component';
-import { ConfirmatorComponent } from './confirmator/confirmator.component';
+import { ConfirmatorComponent } from '../confirmator/confirmator.component';
 
 @NgModule({
   imports: [

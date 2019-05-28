@@ -1,8 +1,23 @@
-<mat-toolbar color="primary" class="mat-elevation-z6 pointer" routerLink="../">
-  <i class="material-icons icon-marg-r">keyboard_backspace</i>
-  <h4>back to Places</h4>
+<mat-toolbar color="primary" class="mat-elevation-z6 ">
+  <i class="material-icons icon-marg-r" routerLink="../">keyboard_backspace</i>
+  <span>back to Places</span>
+  <span class="tlb-spacer"></span>
+  <button mat-mini-fab color="primary" (click)="addNewCatPlace()">
+    <mat-icon class="material-icons">add</mat-icon>
+  </button>
 </mat-toolbar>
 <mat-card *ngIf="categories">
-  <h3>categories list</h3>
-  <p *ngFor="let cat of categories"> {{cat.name}}</p>
+  <mat-list>
+    <h3 mat-subheader>categories list</h3>
+    <mat-list-item *ngFor="let cat of categories">
+      <h4 mat-line>{{cat.name}}</h4>
+      <mat-menu #appMenu="matMenu" xPosition="before">
+        <button mat-menu-item>Edit</button>
+        <button mat-menu-item (click)="removeCatPlace(cat._id, cat.name)">Delete</button>
+      </mat-menu>
+      <button mat-icon-button [matMenuTriggerFor]="appMenu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+    </mat-list-item>
+  </mat-list>
 </mat-card>
