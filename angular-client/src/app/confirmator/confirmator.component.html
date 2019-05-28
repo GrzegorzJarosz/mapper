@@ -1,11 +1,8 @@
 <div class="mat-typography addmodal">
-  <h2>Do you want {{data.descr}} {{data.place.name}}?</h2>
+  <h2>Do you really want {{data.descr}} this item?</h2>
   <p>Are you sure?</p>
-  <div class="">
+  <div>
     <button mat-raised-button (click)="close()">CANCEL</button>
-    <!-- <button mat-raised-button (click)="removePlace()">ACCEPT</button> -->
     <button mat-raised-button (click)="accept()">ACCEPT</button>
-
   </div>
-
 </div>

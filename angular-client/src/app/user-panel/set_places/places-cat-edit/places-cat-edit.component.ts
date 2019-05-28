@@ -19,39 +19,32 @@ export class PlacesCatEditComponent implements OnInit {
 
 
   ngOnInit() {
+    this.loadCats()
+  }
+
+
+  loadCats() {
     this.userPanelService.getMyCatPlaces().subscribe((categories) => {
       this.categories = categories;
-      console.log(categories);
-    })
+    });
   }
 
   addNewCatPlace() {
     console.log('add new cat');
-
   }
 
-  // removeCatPlace(_id) {
-  //   console.log('item to delete - id:' + _id);
 
-  // }
-
-
-
-  removeCatPlace(id, name) {
+  openConfirmator(cat) {
     let dialog = this.dialog.open(ConfirmatorComponent, {
       data: {
+        method: 'deleteCatPlace',
         descr: 'delete',
-        id: id,
-        name: name
+        cat: cat
       }
     })
     dialog.afterClosed().subscribe(() => {
-      // this.reloadPlaces();
-      console.log('succesfully deleted');
-
+      this.loadCats()
     });
   }
-
-
 
 }

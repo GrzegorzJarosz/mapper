@@ -16,7 +16,7 @@ export class UserPanelService {
   }
 
   removeCatPlace(id) {
-    return this.http.delete(`${this.apiUrl}/places/removecatplace/${localStorage.getItem('user')} / ${id}}`)
+    return this.http.delete(`${this.apiUrl}/places/removecatplace/${localStorage.getItem('user')}/${id}`)
   }
 
 }

@@ -28,18 +28,6 @@ export class PlaceListComponent implements OnInit {
     this.refreshMap.emit(true);
   }
 
-  // removePlace(place) {
-  //   let dialog = this.dialog.open(ConfirmatorComponent, {
-  //     data: {
-  //       descr: 'delete',
-  //       name: place
-  //     }
-  //   })
-  //   dialog.afterClosed().subscribe(() => {
-  //     this.reloadPlaces();
-  //   });
-  // }
-
   openConfirmator(place) {
     let dialog = this.dialog.open(ConfirmatorComponent, {
       data: {
