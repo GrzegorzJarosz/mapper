@@ -35,9 +35,7 @@ export class AddCatModalComponent implements OnInit {
 
     this.userPanelService.addCatPlace(this.newCatName)
       .subscribe((result) => {
-        console.log(result)
         this.snackBar.open('new category succesfully added', 'ok', { duration: 2000 });
-        console.log(this.newCatName);
         this.close();
       },
         (err) => {

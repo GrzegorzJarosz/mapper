@@ -19,6 +19,7 @@ import { AppRoutingModule } from './/app-routing.module';
 import { PlacesModule } from './my-places/places.module';
 import { UserPanelModule } from './user-panel/user-panel.module'
 import { AgmCoreModule } from '@agm/core';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { AgmCoreModule } from '@agm/core';
     LoginComponent,
     NavbarComponent,
     RegisterComponent,
-    FooterComponent
+    FooterComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

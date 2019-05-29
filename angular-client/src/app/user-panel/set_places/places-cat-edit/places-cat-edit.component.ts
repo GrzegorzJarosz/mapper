@@ -41,6 +41,7 @@ export class PlacesCatEditComponent implements OnInit {
       }
     })
     dialog.afterClosed().subscribe(() => {
+      this.loadCats()
     })
   }
 

@@ -18,8 +18,11 @@ export class AddModalComponent implements OnInit {
   newPlaceDescr: string;
   newPlaceName: string;
   newPlaceCat: string;
+  existCatPlaces;
+
 
   ngOnInit() {
+    this.existCatPlaces = this.data.categories;
   }
 
   public close() {
@@ -27,11 +30,15 @@ export class AddModalComponent implements OnInit {
   }
 
   public addPlace() {
-    this.data.descr = this.newPlaceDescr;
-    this.data.name = this.newPlaceName;
-    this.data.category = this.newPlaceCat;
+    const newPlace = {
+      lat: this.data.coords.coords.lat,
+      lng: this.data.coords.coords.lng,
+      descr: this.newPlaceDescr,
+      name: this.newPlaceName,
+      category: this.newPlaceCat
+    }
 
-    this.placesService.addNewPlace(this.data)
+    this.placesService.addNewPlace(newPlace)
       .subscribe(result => {
         // console.log(result)
         this.close();

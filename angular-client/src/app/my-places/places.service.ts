@@ -22,8 +22,8 @@ export class PlacesService {
 
   addNewPlace(dataPlace) {
     const place = {
-      lat: dataPlace.coords.coords.lat,
-      lng: dataPlace.coords.coords.lng,
+      lat: dataPlace.lat,
+      lng: dataPlace.lng,
       description: dataPlace.descr,
       name: dataPlace.name,
       category: dataPlace.category,
