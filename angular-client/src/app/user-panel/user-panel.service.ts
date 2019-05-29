@@ -1,6 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json'
+  })
+};
+
 @Injectable()
 export class UserPanelService {
 
@@ -10,6 +16,11 @@ export class UserPanelService {
     private http: HttpClient
   ) { }
 
+
+  addCatPlace(newCat) {
+    const cat = { "name": newCat }
+    return this.http.post(`${this.apiUrl}/places/add_category/${localStorage.getItem('user')}`, cat, httpOptions)
+  }
 
   getMyCatPlaces() {
     return this.http.get(`${this.apiUrl}/places/get_categories/${localStorage.getItem('user')}`);

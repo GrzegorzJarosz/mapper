@@ -15,27 +15,27 @@ export class AddModalComponent implements OnInit {
     private placesService: PlacesService
   ) { }
 
-  newPlaceDescr:string;
-  newPlaceName:string;
-  newPlaceCat:string;
+  newPlaceDescr: string;
+  newPlaceName: string;
+  newPlaceCat: string;
 
   ngOnInit() {
   }
 
-  public close(){
+  public close() {
     this.matDialogRef.close()
   }
 
-  public addPlace(){
+  public addPlace() {
     this.data.descr = this.newPlaceDescr;
     this.data.name = this.newPlaceName;
     this.data.category = this.newPlaceCat;
 
     this.placesService.addNewPlace(this.data)
-    .subscribe(result => {
-      // console.log(result)
-      this.close();
-    })
+      .subscribe(result => {
+        // console.log(result)
+        this.close();
+      })
 
   }
 }

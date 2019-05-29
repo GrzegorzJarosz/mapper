@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserPanelService } from '../../user-panel.service';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { ConfirmatorComponent } from '../../../confirmator/confirmator.component';
+import { AddCatModalComponent } from '../add-cat-modal/add-cat-modal.component';
 
 @Component({
   selector: 'app-places-cat-edit',
@@ -30,9 +31,18 @@ export class PlacesCatEditComponent implements OnInit {
   }
 
   addNewCatPlace() {
-    console.log('add new cat');
+    this.openAddCatDialog();
   }
 
+  openAddCatDialog() {
+    let dialog = this.dialog.open(AddCatModalComponent, {
+      data: {
+        descr: 'new cat'
+      }
+    })
+    dialog.afterClosed().subscribe(() => {
+    })
+  }
 
   openConfirmator(cat) {
     let dialog = this.dialog.open(ConfirmatorComponent, {

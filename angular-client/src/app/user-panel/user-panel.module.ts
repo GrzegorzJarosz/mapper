@@ -7,22 +7,30 @@ import { UserPanelRoutingModule } from './user-panel-routing';
 import { UserPanelListComponent } from './user-panel-list/user-panel-list.component';
 import { PlacesCatEditComponent } from './set_places/places-cat-edit/places-cat-edit.component';
 import { UserPanelService } from './user-panel.service';
+import { AddCatModalComponent } from './set_places/add-cat-modal/add-cat-modal.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
   imports: [
     CommonModule,
     UserPanelRoutingModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   declarations: [
     UserPanelComponent,
     PlacesSetComponent,
     UserPanelListComponent,
-    PlacesCatEditComponent
+    PlacesCatEditComponent,
+    AddCatModalComponent
   ],
   providers: [
     UserPanelService
+  ],
+  entryComponents: [
+    AddCatModalComponent
   ]
 })
 export class UserPanelModule { }

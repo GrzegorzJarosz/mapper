@@ -1,0 +1,9 @@
+<div class="mat-typography">
+  <mat-form-field>
+    <input matInput required [formControl]="catName" [(ngModel)]="newCatName" placeholder=" category name">
+  </mat-form-field>
+  <div>
+    <button mat-raised-button (click)="close()">CANCEL</button>
+    <button *ngIf="!catName.invalid" mat-raised-button (click)="addCat()">ACCEPT</button>
+  </div>
+</div>
