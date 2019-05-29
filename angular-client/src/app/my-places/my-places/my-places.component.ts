@@ -75,12 +75,7 @@ export class MyPlacesComponent implements OnInit {
           //
           //if error
           (err) => { console.log(err) }
-
-
       })
-
-
-
     }
   }
 

@@ -1,0 +1,20 @@
+.home-header {
+  padding-top: 25px;
+  padding-bottom: 12px;
+
+  &-title {
+    font-size: 36px;
+  }
+
+  mat-toolbar-row {
+    justify-content: center;
+  }
+}
+
+.but-start {
+  color: #444;
+}
+
+.home-main {
+  background-position: center;
+}

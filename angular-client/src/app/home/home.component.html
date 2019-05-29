@@ -1,3 +1,15 @@
-<agm-map [latitude]="lat" [longitude]="lng" (mapClick)="onChoseLocation($event)">
-  <!-- <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker> -->
-</agm-map>
+<mat-toolbar color="primary" class="home-header" #toolbar>
+  <mat-toolbar-row>
+    <div>
+      <h1 class="home-header-title">Welcome to MyMapper</h1>
+    </div>
+  </mat-toolbar-row>
+  <mat-toolbar-row>
+    <h5>Save, view and manage your places</h5>
+  </mat-toolbar-row>
+  <mat-toolbar-row>
+    <button class="but-start" mat-raised-button routerLink="/myplaces">Start</button>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="home-main" [ngStyle]="StyleHomeMain()"></div>
