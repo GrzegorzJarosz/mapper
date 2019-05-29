@@ -9,20 +9,21 @@ import { MyPlacesComponent } from './my-places/my-places/my-places.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
 import { AuthGuard } from './guards/auth.guard';
+import { UserPanelRoutingModule } from './user-panel/user-panel-routing';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'myplaces', component: MyPlacesComponent, canActivate: [AuthGuard] },
-  { path: '404', component: NotFoundComponent },
-  { path: '**', redirectTo: '/404' }
+  { path: '**', component: NotFoundComponent }
 ];
 
 
 @NgModule({
   imports: [
     CommonModule,
+    UserPanelRoutingModule,
     RouterModule.forRoot(appRoutes),
   ],
   exports: [
