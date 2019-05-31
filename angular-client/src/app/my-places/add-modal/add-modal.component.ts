@@ -33,14 +33,14 @@ export class AddModalComponent implements OnInit {
     const newPlace = {
       lat: this.data.coords.coords.lat,
       lng: this.data.coords.coords.lng,
-      descr: this.newPlaceDescr,
+      description: this.newPlaceDescr,
       name: this.newPlaceName,
-      category: this.newPlaceCat
+      category: this.newPlaceCat,
+      user: localStorage.getItem('user')
     }
 
     this.placesService.addNewPlace(newPlace)
       .subscribe(result => {
-        // console.log(result)
         this.close();
       })
 

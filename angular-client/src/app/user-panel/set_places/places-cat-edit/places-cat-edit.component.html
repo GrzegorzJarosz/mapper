@@ -6,9 +6,11 @@
     <mat-icon class="material-icons">add</mat-icon>
   </button>
 </mat-toolbar>
-<mat-card *ngIf="categories">
+<mat-card class="cat-places-list" *ngIf="categories">
   <mat-list>
     <h3 mat-subheader>categories list</h3>
+    <mat-divider></mat-divider>
+    <mat-list-item *ngIf="hasCatPlaces()">You have no categories..</mat-list-item>
     <mat-list-item *ngFor="let cat of categories">
       <h4 mat-line>{{cat.name}}</h4>
       <button mat-icon-button (click)="openConfirmator(cat)">

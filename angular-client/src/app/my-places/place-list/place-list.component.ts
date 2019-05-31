@@ -28,6 +28,10 @@ export class PlaceListComponent implements OnInit {
     this.refreshMap.emit(true);
   }
 
+  hasList() {
+    return this.places.length == 0;
+  }
+
   openConfirmator(place) {
     let dialog = this.dialog.open(ConfirmatorComponent, {
       data: {

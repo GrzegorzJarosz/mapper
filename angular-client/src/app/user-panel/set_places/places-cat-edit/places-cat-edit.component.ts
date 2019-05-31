@@ -23,6 +23,9 @@ export class PlacesCatEditComponent implements OnInit {
     this.loadCats()
   }
 
+  hasCatPlaces() {
+    return this.categories.length == 0;
+  }
 
   loadCats() {
     this.userPanelService.getMyCatPlaces().subscribe((categories) => {

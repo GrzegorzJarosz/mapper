@@ -21,13 +21,11 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.mainHeight = window.innerHeight - 336;
-
   }
 
   @HostListener('window:resize', ['$event'])
   onResize(e) {
     this.mainHeight = window.innerHeight - 336;
-
   }
 
   StyleHomeMain() {

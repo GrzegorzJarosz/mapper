@@ -32,7 +32,6 @@ export class ConfirmatorComponent implements OnInit {
         this.placesService.removePlace(this.data.place._id)
           .subscribe(result => {
             this.snackBar.open(`place ${this.data.place.name} succesfully deleted`, 'ok', { duration: 2000 });
-            // console.log(result)
             this.close();
           })
         break;
@@ -41,7 +40,6 @@ export class ConfirmatorComponent implements OnInit {
         this.userPanelService.removeCatPlace(this.data.cat._id)
           .subscribe(result => {
             this.snackBar.open(`place ${this.data.cat.name} succesfully deleted`, 'ok', { duration: 2000 });
-            // console.log(result)
             this.close();
           })
         break;

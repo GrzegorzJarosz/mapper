@@ -21,15 +21,7 @@ export class PlacesService {
   }
 
   addNewPlace(dataPlace) {
-    const place = {
-      lat: dataPlace.lat,
-      lng: dataPlace.lng,
-      description: dataPlace.descr,
-      name: dataPlace.name,
-      category: dataPlace.category,
-      user: localStorage.getItem('user')
-    }
-    return this.http.post(`${this.apiUrl}/places/${localStorage.getItem('user')}`, place, httpOptions)
+    return this.http.post(`${this.apiUrl}/places/${localStorage.getItem('user')}`, dataPlace, httpOptions)
   }
 
   removePlace(id) {
