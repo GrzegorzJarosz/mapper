@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PlacesService } from '../places.service';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatSnackBar } from '@angular/material';
 import { AddModalComponent } from '../add-modal/add-modal.component';
 import { UserPanelService } from '../../user-panel/user-panel.service';
 
@@ -24,8 +24,9 @@ export class MyPlacesComponent implements OnInit {
 
   constructor(
     private placesService: PlacesService,
+    private userPanelService: UserPanelService,
     public dialog: MatDialog,
-    private userPanelService: UserPanelService
+    public snackBar: MatSnackBar
   ) { }
 
   ngOnInit() {
@@ -36,7 +37,17 @@ export class MyPlacesComponent implements OnInit {
 
   loadMyPlaces() {
     this.placesService.getMyPlaces()
-      .subscribe((places) => { this.myplaces = places });
+      .subscribe(
+        (places) => {
+          this.myplaces = places
+        },
+        (err) => {
+          if (err) {
+            console.log(err);
+            this.snackBar.open('something went wrong please try later', 'ok', { duration: 2000 });
+          }
+        }
+      );
   }
 
   loadCategoryPlaces() {
