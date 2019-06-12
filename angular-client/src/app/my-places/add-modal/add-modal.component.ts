@@ -26,13 +26,14 @@ export class AddModalComponent implements OnInit {
   }
 
   public close() {
-    this.matDialogRef.close()
+    this.matDialogRef.close();
+    this.placesService.setAddState(false);
   }
 
   public addPlace() {
     const newPlace = {
-      lat: this.data.coords.coords.lat,
-      lng: this.data.coords.coords.lng,
+      lat: this.data.coords.lat,
+      lng: this.data.coords.lng,
       description: this.newPlaceDescr,
       name: this.newPlaceName,
       category: this.newPlaceCat,

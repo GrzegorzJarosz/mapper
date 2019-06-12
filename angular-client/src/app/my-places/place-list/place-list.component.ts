@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { PlacesService } from '../places.service';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatSnackBar } from '@angular/material';
 import { ConfirmatorComponent } from '../../confirmator/confirmator.component';
 
 @Component({
@@ -10,28 +10,44 @@ import { ConfirmatorComponent } from '../../confirmator/confirmator.component';
 })
 export class PlaceListComponent implements OnInit {
 
-  @Input() places;
-  @Output() placeSel = new EventEmitter<any>();
-  @Output() refreshMap = new EventEmitter<boolean>();
+  private myPlaces;
+  private selectedPlace;
 
   constructor(
     private placesService: PlacesService,
+    public snackBar: MatSnackBar,
     public dialog: MatDialog
   ) { }
 
-  ngOnInit() { }
-
-  onPlaceSelect(place) {
-    this.placeSel.emit(place);
+  ngOnInit() {
+    this.placesLoader();
+    this.placesService.reloader.subscribe(() => {
+      this.placesLoader();
+    })
   }
-  reloadPlaces() {
-    this.refreshMap.emit(true);
+
+  placesLoader() {
+    this.placesService.getMyPlaces().subscribe((places) => {
+      this.myPlaces = places
+    },
+      (err) => {
+        if (err) {
+          console.log(err);
+          this.snackBar.open('something went wrong please try later', 'ok', { duration: 2000 });
+        }
+      });
   }
 
   hasList() {
-    return this.places.length == 0;
+    return this.myPlaces == undefined || this.myPlaces.length == 0;
   }
 
+  onPlaceSelect(place) {
+    this.selectedPlace = place;
+    this.placesService.setSelectedPlace(place);
+  }
+
+  //removeplace -> confirmator
   openConfirmator(place) {
     let dialog = this.dialog.open(ConfirmatorComponent, {
       data: {
@@ -41,7 +57,7 @@ export class PlaceListComponent implements OnInit {
       }
     })
     dialog.afterClosed().subscribe(() => {
-      this.reloadPlaces();
+      this.placesLoader();
     });
   }
 

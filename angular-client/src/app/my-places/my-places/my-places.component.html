@@ -14,17 +14,9 @@
         <mat-icon class="material-icons">add</mat-icon>
       </button>
     </mat-toolbar>
-
-    <app-place-list *ngIf="myplaces" [places]="myplaces" (placeSel)="onPlaceSelected($event)"
-      (refreshMap)="loadMyPlaces()">
-    </app-place-list>
+    <app-place-list></app-place-list>
   </div>
 
-  <agm-map [latitude]="currentZoom.lat" [longitude]="currentZoom.lng" [zoom]="currentZoom.zoom"
-    (mapClick)="onChoseLocation($event)">
-
-    <agm-marker *ngFor="let m of myplaces" [latitude]="m.lat" [longitude]="m.lng" [label]="m.name">
-    </agm-marker>
-  </agm-map>
+  <app-map></app-map>
 
 </div>

@@ -11,6 +11,7 @@ import { AgmCoreModule } from '@agm/core';
 import { MaterialModule } from '../material.module';
 import { AddModalComponent } from './add-modal/add-modal.component';
 import { ConfirmatorComponent } from '../confirmator/confirmator.component';
+import { MapComponent } from './map/map.component';
 
 @NgModule({
   imports: [
@@ -26,7 +27,8 @@ import { ConfirmatorComponent } from '../confirmator/confirmator.component';
     PlaceListComponent,
     PlaceSearchComponent,
     AddModalComponent,
-    ConfirmatorComponent
+    ConfirmatorComponent,
+    MapComponent
   ],
   providers: [
     PlacesService

@@ -11,16 +11,7 @@ import { UserPanelService } from '../../user-panel/user-panel.service';
 })
 export class MyPlacesComponent implements OnInit {
 
-  myplaces;
-  addState: boolean = false;
-  selectedPlace;
-  catPlaces;
-
-  currentZoom = {
-    lat: 50.061753,
-    lng: 19.937393,
-    zoom: 10
-  }
+  public addState: boolean = false;
 
   constructor(
     private placesService: PlacesService,
@@ -30,70 +21,16 @@ export class MyPlacesComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.loadMyPlaces();
-  }
-
-  // LatLngBounds
-
-  loadMyPlaces() {
-    this.placesService.getMyPlaces()
-      .subscribe(
-        (places) => {
-          this.myplaces = places
-        },
-        (err) => {
-          if (err) {
-            console.log(err);
-            this.snackBar.open('something went wrong please try later', 'ok', { duration: 2000 });
-          }
-        }
-      );
-  }
-
-  loadCategoryPlaces() {
-    return this.userPanelService.getMyCatPlaces()
-  }
-
-  onChoseLocation(e) {
-    this.openDialog(e);
-    this.addState = false;
+    this.placesService.getAddState().subscribe((state) => this.addState = state)
   }
 
   setAddState() {
     this.addState = true;
+    this.placesService.setAddState(true)
   }
+
   resetAddState() {
     this.addState = false;
+    this.placesService.setAddState(false)
   }
-
-  openDialog(coords) {
-    if (this.addState === true) {
-
-      this.loadCategoryPlaces().subscribe((catPlaces) => { //load catplaces
-        this.catPlaces = catPlaces;
-
-        //if load catplaces success:
-        let dialog = this.dialog.open(AddModalComponent, {
-          data: {
-            descr: 'new place',
-            coords: coords,
-            categories: this.catPlaces
-          }
-        })
-        dialog.afterClosed().subscribe(() => {
-          this.loadMyPlaces();
-        }),
-          //
-          //if error
-          (err) => { console.log(err) }
-      })
-    }
-  }
-
-  onPlaceSelected($event) {
-    this.currentZoom.lat = $event.lat;
-    this.currentZoom.lng = $event.lng;
-    this.currentZoom.zoom = 12;
-  }
-
 }
