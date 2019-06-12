@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Subject, Observable } from 'rxjs';
-import { ResourceLoader } from '@angular/compiler';
 import { tap } from 'rxjs/operators';
 
 
@@ -63,15 +62,16 @@ export class PlacesService {
         tap(() => {
           this.reloader.next();
         })
-      )
+      );
   }
 
   removePlace(id) {
-    return this.http.delete(`${this.apiUrl}/places/${localStorage.getItem('user')}/${id}`).pipe(
-      tap(() => {
-        this.reloader.next();
-      })
-    );
+    return this.http.delete(`${this.apiUrl}/places/${localStorage.getItem('user')}/${id}`)
+      .pipe(
+        tap(() => {
+          this.reloader.next();
+        })
+      );
   }
 
 }

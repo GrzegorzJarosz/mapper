@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { PlacesService } from '../places.service';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatSnackBar } from '@angular/material';
+import { MatDialog, MatSnackBar } from '@angular/material';
 import { ConfirmatorComponent } from '../../confirmator/confirmator.component';
 
 @Component({
@@ -10,7 +10,7 @@ import { ConfirmatorComponent } from '../../confirmator/confirmator.component';
 })
 export class PlaceListComponent implements OnInit {
 
-  private myPlaces;
+  public myPlaces;
   private selectedPlace;
 
   constructor(

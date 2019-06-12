@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { PlacesService } from '../my-places/places.service';
 import { MatSnackBar } from '@angular/material';
 import { UserPanelService } from '../user-panel/user-panel.service';

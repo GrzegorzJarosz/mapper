@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserPanelService } from '../../user-panel.service';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialog } from '@angular/material';
 import { ConfirmatorComponent } from '../../../confirmator/confirmator.component';
 import { AddCatModalComponent } from '../add-cat-modal/add-cat-modal.component';
 

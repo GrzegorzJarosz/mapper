@@ -11,7 +11,7 @@ import { AddModalComponent } from '../add-modal/add-modal.component';
 })
 export class MapComponent implements OnInit {
 
-  private myPlaces;
+  public myPlaces;
   public openedWindow;
   private selectedPlace;
   private addState: boolean = false;

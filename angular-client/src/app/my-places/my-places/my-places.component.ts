@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PlacesService } from '../places.service';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatSnackBar } from '@angular/material';
-import { AddModalComponent } from '../add-modal/add-modal.component';
+import { MatDialog, MatSnackBar } from '@angular/material';
 import { UserPanelService } from '../../user-panel/user-panel.service';
 
 @Component({
@@ -15,7 +14,6 @@ export class MyPlacesComponent implements OnInit {
 
   constructor(
     private placesService: PlacesService,
-    private userPanelService: UserPanelService,
     public dialog: MatDialog,
     public snackBar: MatSnackBar
   ) { }
