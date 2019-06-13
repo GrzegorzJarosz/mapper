@@ -14,7 +14,6 @@ export class HomeComponent implements OnInit {
   mainHeight;
 
   onChoseLocation(e) {
-    console.log(e);
   }
 
   constructor() { }

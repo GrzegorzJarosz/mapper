@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { PlacesService } from '../places.service';
 import { UserPanelService } from '../../user-panel/user-panel.service';
-import { MatDialog } from '@angular/material';
+import { MatDialog, MatSnackBar } from '@angular/material';
 import { AddModalComponent } from '../add-modal/add-modal.component';
 
 @Component({
@@ -27,6 +27,8 @@ export class MapComponent implements OnInit {
     private placesService: PlacesService,
     private userPanelService: UserPanelService,
     public dialog: MatDialog,
+    public snackBar: MatSnackBar
+
   ) { }
 
   ngOnInit() {
@@ -42,7 +44,12 @@ export class MapComponent implements OnInit {
     this.placesService.getMyPlaces().subscribe((places) => {
       this.myPlaces = places
     },
-      () => { }
+      (err) => {
+        if (err) {
+          console.log(err);
+          this.snackBar.open('something went wrong please try later', 'ok', { duration: 2000 });
+        }
+      }
     );
   }
 

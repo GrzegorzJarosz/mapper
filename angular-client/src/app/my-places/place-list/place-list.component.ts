@@ -29,6 +29,7 @@ export class PlaceListComponent implements OnInit {
   placesLoader() {
     this.placesService.getMyPlaces().subscribe((places) => {
       this.myPlaces = places
+
     },
       (err) => {
         if (err) {

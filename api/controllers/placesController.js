@@ -8,6 +8,7 @@ exports.add_place = (req, res) => {
     lat: req.body.lat,
     lng: req.body.lng,
     name: req.body.name,
+    shortDescr: req.body.shortDescr,
     description: req.body.description,
     category: req.body.category,
     user: req.params.user,
