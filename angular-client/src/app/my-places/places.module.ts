@@ -4,7 +4,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MyPlacesComponent } from './my-places/my-places.component';
 import { PlaceDetailComponent } from './place-detail/place-detail.component';
 import { PlaceListComponent } from './place-list/place-list.component';
-import { PlaceSearchComponent } from './place-search/place-search.component';
 import { PlacesService } from './places.service';
 
 import { AgmCoreModule } from '@agm/core';
@@ -25,7 +24,6 @@ import { MapComponent } from './map/map.component';
     MyPlacesComponent,
     PlaceDetailComponent,
     PlaceListComponent,
-    PlaceSearchComponent,
     AddModalComponent,
     ConfirmatorComponent,
     MapComponent

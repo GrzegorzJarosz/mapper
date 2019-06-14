@@ -11,6 +11,7 @@ import { UserPanelService } from '../../user-panel/user-panel.service';
 export class MyPlacesComponent implements OnInit {
 
   public addState: boolean = false;
+  public mapFlexOnAdd = 2;
 
   constructor(
     private placesService: PlacesService,
@@ -19,7 +20,14 @@ export class MyPlacesComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.placesService.getAddState().subscribe((state) => this.addState = state)
+    this.placesService.getAddState().subscribe((state) => {
+      this.addState = state;
+      if (this.addState == true) {
+        this.mapFlexOnAdd = 0;
+      } else {
+        this.mapFlexOnAdd = 2;
+      }
+    })
   }
 
   setAddState() {
