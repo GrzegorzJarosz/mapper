@@ -1,4 +1,5 @@
 <div class="mypl-container">
+
   <mat-card class="mat-elevation-z6 addInfo" *ngIf="addState">
     <mat-icon>info</mat-icon>
     <p>Choose your new place on map..</p>
@@ -7,14 +8,17 @@
     </mat-card-actions>
   </mat-card>
 
-  <div class="sidepanel" [style.flex]="mapFlexOnAdd">
-    <mat-toolbar color="primary" class="mat-elevation-z6">
+  <div class="sidepanel">
+
+    <mat-toolbar color="primary" class="mat-elevation-z6" (click)="listOpener()">
       <h3>My places</h3>
       <button mat-mini-fab color="primary" (click)="setAddState()">
         <mat-icon class="material-icons">add</mat-icon>
       </button>
     </mat-toolbar>
-    <app-place-list></app-place-list>
+
+    <app-place-list [shouldOpen]="listShouldOpen"></app-place-list>
+
   </div>
 
   <app-map></app-map>

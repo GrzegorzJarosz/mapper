@@ -1,14 +1,18 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PlacesService } from '../places.service';
 import { UserPanelService } from '../../user-panel/user-panel.service';
 import { MatDialog, MatSnackBar } from '@angular/material';
 import { AddModalComponent } from '../add-modal/add-modal.component';
+
+
+import { AgmMap } from '@agm/core';
 
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.scss']
 })
+
 export class MapComponent implements OnInit {
 
   public myPlaces;

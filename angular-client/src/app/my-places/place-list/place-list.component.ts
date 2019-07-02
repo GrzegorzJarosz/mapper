@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { PlacesService } from '../places.service';
 import { MatDialog, MatSnackBar } from '@angular/material';
 import { ConfirmatorComponent } from '../../confirmator/confirmator.component';
@@ -9,6 +9,8 @@ import { ConfirmatorComponent } from '../../confirmator/confirmator.component';
   styleUrls: ['./place-list.component.scss']
 })
 export class PlaceListComponent implements OnInit {
+
+  @Input() shouldOpen;
 
   public myPlaces;
   private selectedPlace;
@@ -60,6 +62,12 @@ export class PlaceListComponent implements OnInit {
     dialog.afterClosed().subscribe(() => {
       this.placesLoader();
     });
+  }
+
+  classesForList() {
+    return {
+      'list-show': this.shouldOpen
+    }
   }
 
 }

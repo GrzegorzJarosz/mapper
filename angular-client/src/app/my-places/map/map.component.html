@@ -1,5 +1,5 @@
   <agm-map [latitude]="currentZoom.lat" [longitude]="currentZoom.lng" [zoom]="currentZoom.zoom"
-    (mapClick)="onChooseLocation($event)">
+    (mapClick)="onChooseLocation($event)" [usePanning]="true">
     <agm-marker *ngFor="let m of myPlaces" [latitude]="m.lat" [longitude]="m.lng" (markerClick)="clickedMarker(m._id)">
       <agm-info-window [isOpen]="isInfoWindowOpen(m._id)">
         <div class="a-i-w-title"><strong>{{m.name}}</strong></div>

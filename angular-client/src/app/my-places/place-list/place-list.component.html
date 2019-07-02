@@ -1,4 +1,4 @@
-<mat-list>
+<mat-list [ngClass]="classesForList()">
   <h3 mat-subheader>My Places</h3>
   <mat-list-item *ngIf="hasList()">You have no places..</mat-list-item>
   <mat-list-item *ngFor="let place of myPlaces" (click)="onPlaceSelect(place)">

@@ -1,12 +1,37 @@
-mat-list-item{
-  cursor:pointer;
-  p{
-    color:#999;
+mat-list {
+  height: calc(100vh - 203px);
+
+  overflow: auto;
+  transition: 0.5s;
+}
+
+mat-list-item {
+  cursor: pointer;
+
+  p {
+    color: #999;
   }
-  &:hover{
+
+  &:hover {
     background-color: #f6f6f6;
   }
-  button{
+
+  button {
     margin-left: 5px;
+  }
+}
+
+.list-show {
+  height: calc(100vh - 203px);
+}
+
+@media (max-width: 666px) {
+
+  mat-list {
+    height: 0;
+  }
+
+  .list-show {
+    height: 44vh;
   }
 }
