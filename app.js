@@ -51,11 +51,10 @@ app.use('/user', userRoutes);
 app.use('/places', placesRoutes);
 
 /*-----------------------------------------------------------------------------------------------*/
-//index route
-app.get('/', (req, res) => {
-  res.send('hello');
-});
 
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, 'public/index.html'))
+});
 
 //errors//
 app.use((req, res, next) => {
