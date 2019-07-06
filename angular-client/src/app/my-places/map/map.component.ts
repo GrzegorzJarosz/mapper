@@ -4,7 +4,6 @@ import { UserPanelService } from '../../user-panel/user-panel.service';
 import { MatDialog, MatSnackBar } from '@angular/material';
 import { AddModalComponent } from '../add-modal/add-modal.component';
 
-
 import { AgmMap } from '@agm/core';
 
 @Component({
@@ -82,6 +81,7 @@ export class MapComponent implements OnInit {
         //if load catplaces success:
         let dialog = this.dialog.open(AddModalComponent, {
           data: {
+            method: 'addNewPlace',
             descr: 'new place',
             coords: e.coords,
             categories: this.catPlaces

@@ -74,4 +74,13 @@ export class PlacesService {
       );
   }
 
+  editPlace(place) {
+    return this.http.put(`${this.apiUrl}/places/${localStorage.getItem('user')}/${place._id}`, place, httpOptions)
+      .pipe(
+        tap(() => {
+          this.reloader.next();
+        })
+      );;
+  }
+
 }

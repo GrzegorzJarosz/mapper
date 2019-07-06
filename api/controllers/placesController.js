@@ -59,6 +59,30 @@ exports.getall_places = (req, res) => {
     });
 }
 
+exports.updatePlace = (req, res) => {
+  Place.findByIdAndUpdate({
+    _id: req.params.id
+  }, {
+    $set: {
+      shortDescr: req.body.shortDescr,
+      description: req.body.description,
+      name: req.body.name,
+      category: req.body.category
+    }
+  }).exec().then(
+    () => res.status(200).send({
+      msg: 'updating successfull'
+    })
+  ).catch(
+    err => {
+      console.log('error with updating');
+      res.status(500).json({
+        error: err
+      })
+    }
+  )
+}
+
 
 //////////////////////////////
 /////place categories/////////

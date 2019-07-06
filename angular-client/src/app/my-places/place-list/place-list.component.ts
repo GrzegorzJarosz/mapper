@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { PlacesService } from '../places.service';
 import { MatDialog, MatSnackBar } from '@angular/material';
 import { ConfirmatorComponent } from '../../confirmator/confirmator.component';
+import { AddModalComponent } from '../add-modal/add-modal.component';
 
 @Component({
   selector: 'app-place-list',
@@ -68,6 +69,25 @@ export class PlaceListComponent implements OnInit {
     return {
       'list-show': this.shouldOpen
     }
+  }
+
+  openEditModal(editedPlace) {
+
+    //if load catplaces success:
+    let dialog = this.dialog.open(AddModalComponent, {
+      data: {
+        editedPlace: editedPlace,
+        method: 'editPlace',
+        descr: 'edit place'
+      }
+    })
+    dialog.afterClosed().subscribe(() => {
+
+    }),
+      //
+      //if error
+      (err) => { console.log(err) }
+
   }
 
 }

@@ -16,6 +16,11 @@ router.delete('/:user/:id', PlacesController.delete_place);
 //get all places by user
 router.get('/:user', PlacesController.getall_places);
 
+/*------------------------------------------------------------------*/
+//update place
+router.put('/:user/:id', PlacesController.updatePlace);
+
+
 //////////////////////////////
 /////place categories/////////
 //////////////////////////////
