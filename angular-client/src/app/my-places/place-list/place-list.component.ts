@@ -3,6 +3,7 @@ import { PlacesService } from '../places.service';
 import { MatDialog, MatSnackBar } from '@angular/material';
 import { ConfirmatorComponent } from '../../confirmator/confirmator.component';
 import { AddModalComponent } from '../add-modal/add-modal.component';
+import { UserPanelService } from '../../user-panel/user-panel.service';
 
 @Component({
   selector: 'app-place-list',
@@ -15,9 +16,12 @@ export class PlaceListComponent implements OnInit {
 
   public myPlaces;
   private selectedPlace;
+  public catPlaces;
+
 
   constructor(
     private placesService: PlacesService,
+    private userPanelService: UserPanelService,
     public snackBar: MatSnackBar,
     public dialog: MatDialog
   ) { }
@@ -71,23 +75,31 @@ export class PlaceListComponent implements OnInit {
     }
   }
 
+  loadCategoryPlaces() {
+    return this.userPanelService.getMyCatPlaces()
+  }
+
   openEditModal(editedPlace) {
 
-    //if load catplaces success:
-    let dialog = this.dialog.open(AddModalComponent, {
-      data: {
-        editedPlace: editedPlace,
-        method: 'editPlace',
-        descr: 'edit place'
-      }
+    this.loadCategoryPlaces().subscribe((catPlaces) => { //load catplaces
+      this.catPlaces = catPlaces;
+
+      //if load catplaces success:
+      let dialog = this.dialog.open(AddModalComponent, {
+        data: {
+          editedPlace: editedPlace,
+          method: 'editPlace',
+          descr: 'edit place',
+          categories: this.catPlaces
+        }
+      })
+      dialog.afterClosed().subscribe(() => {
+
+      }),
+        //
+        //if error
+        (err) => { console.log(err) }
     })
-    dialog.afterClosed().subscribe(() => {
-
-    }),
-      //
-      //if error
-      (err) => { console.log(err) }
-
   }
 
 }
