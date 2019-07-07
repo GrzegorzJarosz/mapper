@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PlacesService } from '../places.service';
 import { MatDialog, MatSnackBar } from '@angular/material';
 
@@ -10,7 +10,7 @@ import { MatDialog, MatSnackBar } from '@angular/material';
 export class MyPlacesComponent implements OnInit {
 
   public addState: boolean = false;
-  public listShouldOpen: boolean = true;
+  public listShouldOpen: boolean = false;
 
   constructor(
     private placesService: PlacesService,
@@ -41,6 +41,5 @@ export class MyPlacesComponent implements OnInit {
       this.listShouldOpen = !this.listShouldOpen;
     }
   }
-
 
 }

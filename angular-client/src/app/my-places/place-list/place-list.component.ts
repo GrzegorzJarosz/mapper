@@ -80,7 +80,6 @@ export class PlaceListComponent implements OnInit {
   }
 
   openEditModal(editedPlace) {
-
     this.loadCategoryPlaces().subscribe((catPlaces) => { //load catplaces
       this.catPlaces = catPlaces;
 

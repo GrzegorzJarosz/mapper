@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import 'rxjs/Rx';
 import { Subject } from 'rxjs/Subject';
 import { JwtHelperService } from '@auth0/angular-jwt';
@@ -12,6 +12,7 @@ export class AuthService {
   user: any;
   authToken: any;
   userObs;
+
   constructor(
     private http: HttpClient
   ) { }

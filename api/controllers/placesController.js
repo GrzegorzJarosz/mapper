@@ -59,6 +59,7 @@ exports.getall_places = (req, res) => {
     });
 }
 
+/*------------------------------------------------------------------*/
 exports.updatePlace = (req, res) => {
   Place.findByIdAndUpdate({
     _id: req.params.id
