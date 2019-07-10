@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from '../../environments/environment';
+
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -10,7 +12,7 @@ const httpOptions = {
 @Injectable()
 export class UserPanelService {
 
-  apiUrl: string = 'http://localhost:3000';
+  apiUrl = environment.apiUrl;
 
   constructor(
     private http: HttpClient
@@ -23,6 +25,7 @@ export class UserPanelService {
   }
 
   getMyCatPlaces() {
+
     return this.http.get(`${this.apiUrl}/places/get_categories/${localStorage.getItem('user')}`);
   }
 

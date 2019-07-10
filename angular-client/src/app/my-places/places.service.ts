@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Subject, Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
+import { environment } from '../../environments/environment';
 
 
 const httpOptions = {
@@ -13,7 +14,7 @@ const httpOptions = {
 @Injectable()
 export class PlacesService {
 
-  apiUrl: string = 'http://localhost:3000';
+  apiUrl = environment.apiUrl;
 
   constructor(
     private http: HttpClient
@@ -52,6 +53,8 @@ export class PlacesService {
   ////---------------------------------------////
 
   getMyPlaces() {
+
+    console.log(this.apiUrl);
     return this.http.get(`${this.apiUrl}/places/${localStorage.getItem('user')}`);
   }
 

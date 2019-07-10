@@ -3,6 +3,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import 'rxjs/Rx';
 import { Subject } from 'rxjs/Subject';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { environment } from '../environments/environment';
+
 
 const jwtHelper = new JwtHelperService();
 
@@ -17,7 +19,7 @@ export class AuthService {
     private http: HttpClient
   ) { }
 
-  apiUrl: string = 'http://localhost:3000';
+  apiUrl = environment.apiUrl;
 
   /*------------------------------------------------------------------------*/
 
